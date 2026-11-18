@@ -1,6 +1,15 @@
 1.2 (unreleased)
 ----------------
 
+- Fixed critical bug: the dust file included since version 1.0.1 contained
+  optical properties computed with a version of bhmie that had a bug, which
+  gave an incorrect albedo and scattering matrix. The dust file is no longer
+  included and is instead generated from the hyperion-dust package, which is
+  now a required dependency. The extinction in the new file is within 1% of
+  that in the previous one (it is not identical because the minimum grain
+  size and the abundances used are slightly different). Models computed with
+  versions 1.0.1 and 1.1 used the incorrect optical properties.
+
 - Updated the package to work with Python 3.11 and later, and with current
   versions of Numpy, Astropy and Hyperion. Python 2 is no longer supported.
 

@@ -1,4 +1,3 @@
-import glob
 import os
 import shutil
 import random
@@ -24,15 +23,24 @@ VALID.append(['-'])
 VALID.append(['-'])
 VALID.append(['-'])
 
-# Set path with dust files
-DATA_PATH = os.path.join(os.path.dirname(__file__), 'data/dust/')
+# Dust files used by the models, and the arguments that should be passed to
+# hyperion_dust.get_dust_filename to generate each of them. The sublimation
+# temperature should match TSUB in hyperion_helper.py.
+DUST_FILES = {
+    'd03_5.5_3.0_A_sub.hdf5': {'name': 'd03_5.5_3.0_A',
+                               'sublimation_mode': 'fast',
+                               'sublimation_temperature': 1600.},
+}
 
 
 def export_dust_files(directory):
 
-    # Copy all dust files there
-    for filename in glob.glob(os.path.join(DATA_PATH, '*.hdf5')):
-        shutil.copy(filename, directory + '/' + os.path.basename(filename))
+    from hyperion_dust import get_dust_filename
+
+    # Generate all dust files and copy them there
+    for filename, kwargs in DUST_FILES.items():
+        shutil.copy(get_dust_filename(**kwargs),
+                    os.path.join(directory, filename))
 
 
 def _check_set_name(set_name):
