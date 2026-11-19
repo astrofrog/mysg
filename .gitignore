@@ -11,3 +11,4 @@ doc/temperature_vs_radius-eps-converted-to.pdf
 __pycache__
 *.egg-info
 dist
+mysg/_version.py

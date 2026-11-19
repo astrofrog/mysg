@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
@@ -19,7 +19,10 @@ dependencies = [
 Repository = "https://github.com/astrofrog/mysg"
 
 [tool.hatch.version]
-path = "mysg/__init__.py"
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "mysg/_version.py"
 
 [tool.hatch.build.targets.sdist]
 include = ["/mysg", "/CHANGES.md"]
