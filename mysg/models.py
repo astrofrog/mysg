@@ -2,6 +2,7 @@ import glob
 import os
 import shutil
 import random
+import zlib
 
 import numpy as np
 from astropy.table import Table
@@ -9,7 +10,6 @@ from astropy.table import Table
 from .ranges import read_ranges, write_ranges, select_required_ranges
 from .util import create_dir, random_id
 from .parameters import write_parfile
-from collections import OrderedDict
 
 VALID = []
 VALID.append(['-', 's'])
@@ -44,9 +44,12 @@ def _check_set_name(set_name):
 
 def sample_set_models(directory, set_name, number_function):
 
-    # Ensure reproducibility
-    random.seed(abs(hash(set_name)))
-    np.random.seed(seed=abs(hash(set_name)))
+    # Ensure reproducibility. The built-in hash function can't be used for
+    # this since it gives different values for strings every time Python is
+    # started.
+    seed = zlib.crc32(set_name.encode('ascii'))
+    random.seed(seed)
+    np.random.seed(seed=seed)
 
     # Read in the ranges
     ranges = read_ranges("%s/%s/ranges.conf" % (directory, set_name))
@@ -75,7 +78,7 @@ def sample_set_models(directory, set_name, number_function):
         elif par['sampling'] in ['fixed']:
             values[name] = np.repeat(par['value'], number)
         elif par['sampling'] in ['str']:
-            values[name] = np.repeat(np.string_(par['value']), number)
+            values[name] = np.repeat(np.bytes_(par['value']), number)
         elif par['sampling'] == 'linked':
             values[name] = values[ranges[name]['parameter']]
         else:
@@ -99,7 +102,7 @@ def sample_set_models(directory, set_name, number_function):
             os.mkdir(subdir.replace('/par/', '/input/'))
             os.mkdir(subdir.replace('/par/', '/output/'))
 
-        write_parfile("%s/%s.par" % (subdir, model_name), OrderedDict(zip(values.keys(), values[i])))
+        write_parfile("%s/%s.par" % (subdir, model_name), dict(zip(values.keys(), values[i])))
 
     # Write out table
     values.write("%s/%s/parameters.hdf5" % (directory, set_name), path='Table')
@@ -116,7 +119,7 @@ def make_set_dir(directory, set_name):
 
     # Select ranges that are actually needed
     ranges = select_required_ranges(set_name)
-    
+
     # Create directory
     create_dir('%s/%s' % (directory, set_name))
 

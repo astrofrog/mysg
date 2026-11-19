@@ -1,5 +1,3 @@
-from __future__ import unicode_literals, division, print_function
-
 import numpy as np
 
 from hyperion.model import AnalyticalYSOModel
@@ -48,7 +46,7 @@ def setup_model(parfile, output, imaging=True):
     # Set up model
     m = AnalyticalYSOModel(output)
 
-    if not 'star' in par:
+    if 'star' not in par:
         raise Exception("Cannot compute a model without a central source")
 
     # Set radius and luminosity
@@ -129,7 +127,7 @@ def setup_model(parfile, output, imaging=True):
 
     if 'cavity' in par:
 
-        if not 'envelope' in par:
+        if 'envelope' not in par:
             raise Exception("Can't have a bipolar cavity without an envelope")
 
         # Add the bipolar cavity component
@@ -158,7 +156,7 @@ def setup_model(parfile, output, imaging=True):
 
         # Set the density, temperature, and dust properties
         ambient.rho = par['ambient']['density']
-        ambient.temperature = par['ambient']['temperature']
+        ambient_temperature = par['ambient']['temperature']
         ambient.dust = dust_files[par['ambient']['dust']]
 
         # If there is an envelope, set the outer radius to where the
@@ -169,7 +167,7 @@ def setup_model(parfile, output, imaging=True):
             # Find radius where the optically thin temperature drops to the
             # ambient temperature. We can do this only if we've already set
             # up all the sources of emission beforehand (which we have)
-            rmax_temp = OptThinRadius(ambient.temperature).evaluate(m.star, envelope.dust)
+            rmax_temp = OptThinRadius(ambient_temperature).evaluate(m.star, envelope.dust)
 
             # Find radius where the envelope density drops to the ambient density
             rmax_dens = envelope.outermost_radius(ambient.rho)
@@ -185,7 +183,7 @@ def setup_model(parfile, output, imaging=True):
                 envelope.rmax = rmax_dens
             else:
                 print("Setting envelope outer radius to that where T_thin(r) = T_amb")
-                envelope.rmax = OptThinRadius(ambient.temperature)
+                envelope.rmax = OptThinRadius(ambient_temperature)
 
             ambient.rmax = envelope.rmax
 
@@ -196,7 +194,7 @@ def setup_model(parfile, output, imaging=True):
                 # Find radius where the optically thin temperature drops to the
                 # ambient temperature. We can do this only if we've already set
                 # up all the sources of emission beforehand (which we have)
-                rmax_temp = OptThinRadius(ambient.temperature).evaluate(m.star, ambient.dust)
+                rmax_temp = OptThinRadius(ambient_temperature).evaluate(m.star, ambient.dust)
 
                 # Find outer disk radius
                 rmax_dens = disk.rmax
@@ -207,11 +205,11 @@ def setup_model(parfile, output, imaging=True):
                     ambient.rmax = rmax_dens
                 else:
                     print("Setting ambient outer radius to that where T_thin(r) = T_amb")
-                    ambient.rmax = OptThinRadius(ambient.temperature)
+                    ambient.rmax = OptThinRadius(ambient_temperature)
 
             else:
 
-                ambient.rmax = OptThinRadius(ambient.temperature)
+                ambient.rmax = OptThinRadius(ambient_temperature)
 
         # The inner radius for the ambient medium should be the largest of
         # the inner radii for the disk and envelope
@@ -234,7 +232,7 @@ def setup_model(parfile, output, imaging=True):
 
         # Make sure that the temperature in the model is always at least
         # the ambient temperature
-        m.set_minimum_temperature(ambient.temperature)
+        m.set_minimum_temperature(ambient_temperature)
 
     else:
 
@@ -271,9 +269,9 @@ def setup_model(parfile, output, imaging=True):
     image.set_wavelength_range(200, 0.01, 5000.)
 
     if 'ambient' in par:
-        image.set_aperture_range(20, rmin, rmax / np.sqrt(2.))
+        image.set_aperture_radii(20, rmin, rmax / np.sqrt(2.))
     else:
-        image.set_aperture_range(20, rmin, rmax)
+        image.set_aperture_radii(20, rmin, rmax)
 
     image.set_output_bytes(8)
     image.set_track_origin(True)
@@ -350,7 +348,7 @@ def setup_model(parfile, output, imaging=True):
         rtau = np.min(surface)
 
         if rtau > rmin and optimize:
-            log.warn("tau_5mm > 1 for all (theta,phi) values - truncating "
+            log.warning("tau_5mm > 1 for all (theta,phi) values - truncating "
                      "inner envelope from {0:.3f}au to {1:.3f}au".format(mf.grid.r_wall[1] / au, rtau / au))
             for item in mf.grid['density']:
                 item.array[mf.grid.gr < rtau] = 0.

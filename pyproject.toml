@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mysg"
+dynamic = ["version"]
+description = "Model YSO SED Grid"
+authors = [{name = "Thomas Robitaille"}]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "astropy",
+    "h5py",
+    "hyperion>=1.0.0b1",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Repository = "https://github.com/astrofrog/mysg"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "mysg/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["/mysg", "/CHANGES.md"]
+
+[tool.ruff.lint]
+select = ["F"]
+
+[tool.pytest.ini_options]
+testpaths = ["mysg"]
