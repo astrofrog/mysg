@@ -13,7 +13,7 @@ dependencies = [
     "astropy",
     "h5py",
     "hyperion>=1.0.0b1",
-    "hyperion-dust>=0.2,<0.3",
+    "hyperion-dust>=0.2",
 ]
 
 [project.optional-dependencies]
