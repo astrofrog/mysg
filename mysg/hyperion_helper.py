@@ -269,9 +269,9 @@ def setup_model(parfile, output, imaging=True):
     image.set_wavelength_range(200, 0.01, 5000.)
 
     if 'ambient' in par:
-        image.set_aperture_range(20, rmin, rmax / np.sqrt(2.))
+        image.set_aperture_radii(20, rmin, rmax / np.sqrt(2.))
     else:
-        image.set_aperture_range(20, rmin, rmax)
+        image.set_aperture_radii(20, rmin, rmax)
 
     image.set_output_bytes(8)
     image.set_track_origin(True)
