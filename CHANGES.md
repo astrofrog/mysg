@@ -8,7 +8,10 @@
   now a required dependency. The extinction in the new file is within 1% of
   that in the previous one (it is not identical because the minimum grain
   size and the abundances used are slightly different). Models computed with
-  versions 1.0.1 and 1.1 used the incorrect optical properties.
+  versions 1.0.1, 1.1 and 1.1.1 used the incorrect optical properties.
+
+1.1.1 (2026-11-19)
+------------------
 
 - Updated the package to work with Python 3.11 and later, and with current
   versions of Numpy, Astropy and Hyperion. Python 2 is no longer supported.
