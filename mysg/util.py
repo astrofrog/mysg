@@ -1,8 +1,7 @@
-from __future__ import unicode_literals, division, print_function
-
 import random
 import string
 import os
+import shutil
 import sys
 
 
@@ -16,22 +15,19 @@ def combinations(list1, list2):
 
 def random_id(length=8):
     chars = string.ascii_letters + string.digits
-    s = ""
-    for i in range(length):
-        s += random.choice(chars)
-    return s
+    return "".join(random.choice(chars) for _ in range(length))
 
 
 def create_dir(dir_name):
     delete_dir(dir_name)
-    os.system("mkdir %s " % dir_name)
+    os.mkdir(dir_name)
 
 
 def delete_dir(dir_name):
     if os.path.exists(dir_name):
-        reply = raw_input("Delete directory %s? [y/[n]] " % dir_name)
+        reply = input("Delete directory %s? [y/[n]] " % dir_name)
         if reply == 'y':
-            os.system("rm -r %s" % dir_name)
+            shutil.rmtree(dir_name)
         else:
             print("Aborting...")
             sys.exit()
