@@ -2,13 +2,12 @@ import glob
 import os
 import shutil
 import random
-import zlib
 
 import numpy as np
 from astropy.table import Table
 
 from .ranges import read_ranges, write_ranges, select_required_ranges
-from .util import create_dir, random_id
+from .util import create_dir, python2_hash, random_id
 from .parameters import write_parfile
 
 VALID = []
@@ -44,12 +43,13 @@ def _check_set_name(set_name):
 
 def sample_set_models(directory, set_name, number_function):
 
-    # Ensure reproducibility. The built-in hash function can't be used for
-    # this since it gives different values for strings every time Python is
-    # started.
-    seed = zlib.crc32(set_name.encode('ascii'))
+    # Ensure reproducibility. The seeds are the ones that were used with
+    # Python 2 for the published model sets, so that the same parameters and
+    # model names are sampled. Numpy used to only make use of the lowest 32
+    # bits of the seed, and now requires the seed to fit into 32 bits.
+    seed = abs(python2_hash(set_name))
     random.seed(seed)
-    np.random.seed(seed=seed)
+    np.random.seed(seed=seed & 0xFFFFFFFF)
 
     # Read in the ranges
     ranges = read_ranges("%s/%s/ranges.conf" % (directory, set_name))

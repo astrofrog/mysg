@@ -5,8 +5,8 @@
   versions of Numpy, Astropy and Hyperion. Python 2 is no longer supported.
 
 - The random seed used when sampling the parameters for a model set is now
-  the same every time for a given set name. The parameters sampled for a
-  given set are not the same as with previous versions.
+  the same with Python 3 as it was with Python 2, so that sampling a model
+  set gives the same model names and parameters as in the published sets.
 
 - The package is now built with hatchling.
 
