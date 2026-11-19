@@ -21,7 +21,10 @@ The files in ``atmos/phoenix/`` are named
 ``pt{temperature:05d}g+4.0z-2.0.hdf5`` and cover 2000 to 4000 K in steps of
 100 K. They are PHOENIX models from the grid computed for the Gaia mission
 (Brott & Hauschildt 2005), with [M/H] = -2.0 and no alpha enhancement. For
-these files, the ``z-2.0`` in the name is the PHOENIX [M/H].
+these files, the ``z-2.0`` in the name is the PHOENIX [M/H]. The paper
+describes models with T >= 2700 K and spectra sampled every 2 Angstrom, while
+the files used here are from a later, higher resolution version of the grid
+that extends down to 2000 K.
 
 The original spectra are the high-resolution files (sampled every 0.02
 Angstrom in the optical) named
@@ -64,7 +67,7 @@ are a different computation and do not reproduce the files here.
 The files in ``atmos/kurucz/`` are named
 ``kt{temperature:05d}g+4.0z-2.0.hdf5`` and cover 3500 to 39000 K (in steps of
 250 K up to 13000 K and 1000 K above). They are the solar metallicity
-([M/H] = 0) models of Castelli & Kurucz (2004).
+([M/H] = 0) models of Castelli & Kurucz (2003).
 
 The ``z-2.0`` in the names of these files is confusing, because it does not
 mean [M/H] = -2 as it does for the PHOENIX files. It was carried over from
@@ -82,6 +85,9 @@ way. The only other difference is an extra point at a wavelength of 1 cm.
 ## References
 
 * Brott, I. & Hauschildt, P. H. 2005, "A PHOENIX Model Atmosphere Grid for
-  Gaia", ESA SP-576, 565
-* Castelli, F. & Kurucz, R. L. 2004, "New Grids of ATLAS9 Model Atmospheres",
-  arXiv:astro-ph/0405087
+  Gaia", in The Three-Dimensional Universe with Gaia, ed. C. Turon,
+  K. S. O'Flaherty & M. A. C. Perryman, ESA SP-576, 565
+  (arXiv:astro-ph/0503395)
+* Castelli, F. & Kurucz, R. L. 2003, "New Grids of ATLAS9 Model Atmospheres",
+  in IAU Symposium 210, Modelling of Stellar Atmospheres, ed. N. Piskunov et
+  al., poster A20 (arXiv:astro-ph/0405087)
