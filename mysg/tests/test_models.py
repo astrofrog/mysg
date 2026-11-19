@@ -44,6 +44,26 @@ def test_model_set(tmp_path, monkeypatch, set_name):
         assert 'Sources' in f
 
 
+def test_published_sampling(tmp_path):
+
+    # Check that the sampling gives the same model names and parameters as
+    # for the published model sets, which were sampled with Python 2. The
+    # values are those for one of the models in the s-p-hmi set.
+
+    directory = str(tmp_path)
+    set_name = 's-p-hmi-----'
+
+    make_set_dir(directory, set_name)
+    sample_set_models(directory, set_name, lambda n_free: 10000)
+
+    parfile = os.path.join(directory, set_name, 'par', '9x', '9xOmatQf.par')
+    assert os.path.exists(parfile)
+
+    par = read_parfile(parfile)
+    assert par['star.radius'] == 2.972e-01
+    assert par['star.temperature'] == 2.753e+04
+
+
 def test_optically_thick_envelope(tmp_path, monkeypatch, caplog):
 
     # For 1-d models, the inner envelope is removed if it is optically thick
