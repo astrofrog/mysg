@@ -1,0 +1,138 @@
+{
+ "description": "Solar-metallicity PHOENIX tables used for the R24 v1.3 models (T. Richardson 2026, richardson-t/mysg commit b446dde): source spectra, flux at 1 cm and checksums. See README.md.",
+ "url": "https://archive.stsci.edu/hlsps/reference-atlases/cdbs/grid/phoenix/phoenixm00/phoenixm00_{teff}.fits",
+ "column": "g40",
+ "checksums": {
+  "sha256": "SHA-256 of the table values as little-endian 64-bit floats (mysg.atmosphere.table_sha256)",
+  "source_sha256": "SHA-256 of the STScI file as downloaded on 2026-11-19 (Last-Modified 2021-05-17)",
+  "r24v13_file_sha256": "SHA-256 of the HDF5 file used for the R24 v1.3 models"
+ },
+ "tables": {
+  "2000": {
+   "fnu_1cm": 1.8465205115387458e-22,
+   "sha256": "bad6241206c7e46c277c6ab914eb6a1858dfd3d433c54dad8dda37db377e3d95",
+   "source_sha256": "15a1101e52bd39989ca5e69fb0d0d3da0604cca545779289077fa6dd153aa44e",
+   "r24v13_file_sha256": "2bd6975dc62daaab04ae3fdb2d17e4f68aab5e36e4f369bc3ff61146cf76c285"
+  },
+  "2100": {
+   "fnu_1cm": 1.7922593655021286e-22,
+   "sha256": "5cae2a6eadd0f2d3bbaf759d89b5821f17c8e325b0bb34e7b3a019d7c8c0c7c6",
+   "source_sha256": "31eb72db2b777f8417d9d5a4167f4149330321c0fc40149b21b180c63dd90988",
+   "r24v13_file_sha256": "7ad227899be3586cf33be345c1e72ce2e8de7ec94cc2291d84226255a6aa86c7"
+  },
+  "2200": {
+   "fnu_1cm": 1.8437229922892292e-22,
+   "sha256": "600644bffad126c277e0c4b5e8f81114d89f1a2e85a9fb199887e25b63e225e3",
+   "source_sha256": "1aa63da091ac1bc21b4815247f2fd3683fa2c6c793111b3ed4898cb13c0b8d63",
+   "r24v13_file_sha256": "ff50031c3a8e2a6e4792a869a2ad034c8c97e58f2f754adae576fe57173bcfe3"
+  },
+  "2300": {
+   "fnu_1cm": 1.963664802387719e-22,
+   "sha256": "ccc3cccdb4a2e1f11ebef4543e9ba2634c65d51940a20a0666142be7f6fe618d",
+   "source_sha256": "4d93fa7b3830b8c3f64f1696d66ced97f9bab9a519decf285ee9bfb9a2bda81b",
+   "r24v13_file_sha256": "15ccb715cf734253cdc029882688832793e7d60cddcdcd57c353580ca63ddba8"
+  },
+  "2400": {
+   "fnu_1cm": 2.1222518675113225e-22,
+   "sha256": "47c5739b814eba72a4ed4c7f9eea775c5dc76da34c5611a761a4e528a5370a61",
+   "source_sha256": "29cfc81c59427cae40fe75416688d771a67d85cccab02606519ddaf3116fc82a",
+   "r24v13_file_sha256": "31d4c1ce00b29ab57490a1b146081f8994e3aad3232d2b01e43677c1a19c99b9"
+  },
+  "2500": {
+   "fnu_1cm": 2.2879234787184177e-22,
+   "sha256": "70b373cfe1976f60dd7de13e4850b5635440c9038ea398cbcf82aa0851a8aab7",
+   "source_sha256": "b01aa88bc8f72016e72ff7943e05f64dceea84ab14a47b19c8e8ca89ed25ce05",
+   "r24v13_file_sha256": "8053522319a08e2273ac2ae8c23c34f80c34637438dd8abfbd8769213fedaad0"
+  },
+  "2600": {
+   "fnu_1cm": 2.450320447535456e-22,
+   "sha256": "af30077301354ce5d1acb50b8ad9127cd29af0d5d908f3ce175ce91b8218d974",
+   "source_sha256": "15841606a5191e01375dcef8637f1d6f4c1870bcbdbfb6f50b536276be65ea0d",
+   "r24v13_file_sha256": "fdc566c16c97ca061345d6da273e6bc548fe2f3f873d862adacfb5cdaede4301"
+  },
+  "2700": {
+   "fnu_1cm": 2.6749080379122806e-22,
+   "sha256": "7aec37f53ce463a92d5a623b7cb3e28db3e4d549333602615948b7d6eb8052a5",
+   "source_sha256": "d8142266dbd62b0bdf580ffdf0ffe0e6cad02a19895623e62e7383b0afe6057c",
+   "r24v13_file_sha256": "9cc3468218e43a7805c41a8499abcb314522eef5acbde8c59e46e367a4b3c109"
+  },
+  "2800": {
+   "fnu_1cm": 2.807835585554978e-22,
+   "sha256": "fa009aad72481f762237d598fbaf0895ab114bc7c04c6028b5b92e8ae3a0afd3",
+   "source_sha256": "a0e9082bd0de33b1c1f5f2ad94874abb8b49dd6f0abb2a6e33c67bce96e048b6",
+   "r24v13_file_sha256": "91e596a7be8ae1149001041fae0f74682eb7854fed2db269fe968835bd23586f"
+  },
+  "2900": {
+   "fnu_1cm": 2.8734683756668126e-22,
+   "sha256": "85b7f6eecca0a71e868a0e6a8b5533afb8c6c3a2a6059d2fdc84b8bc366a8c1e",
+   "source_sha256": "8da2f63d7ae1cbe7325ea5ccc064a874aaf4bf1e7a1a7d1819908d33305a9b28",
+   "r24v13_file_sha256": "ebb01e7032f9bd2d78e28c9f3e7b55477c27202595291c1b472b84ca6cdc21e2"
+  },
+  "3000": {
+   "fnu_1cm": 2.999775856285034e-22,
+   "sha256": "c51cc7c848b8f4a423f5be73f9b9ff998debe618dc2c5d70d0e3a6b4cfe6bdc3",
+   "source_sha256": "fd9ea3d54ce7ef5fa6e641af6b111254cd69abe8b508e101ab0d46d40140c76a",
+   "r24v13_file_sha256": "684640913713f671cd83c7863b7e652e22417ec28017b9d71f3269f49501647e"
+  },
+  "3100": {
+   "fnu_1cm": 3.060333240619393e-22,
+   "sha256": "b7d7bdc6d1b762e27e9467d0e67513ab52050a97b39b57d3624ac9c6693c6813",
+   "source_sha256": "0bafb5795ca907bbc18116f6035b190f9253c3c32812d96e6608a3b040bbeb4e",
+   "r24v13_file_sha256": "6f45fe693b82ec11e3697d6b7eb87e488e8f136efde6afca10ed295c0b4d5345"
+  },
+  "3200": {
+   "fnu_1cm": 3.132938039725286e-22,
+   "sha256": "ad930064ca28b7035468ce07909355f29a8d2e194bdc2c6409239968e0bae476",
+   "source_sha256": "34d6224b9ca3700d2c21f978cd87969476f33e33c436ea06eada493369c2001c",
+   "r24v13_file_sha256": "ab7d7c7d9d68f9afb322db81edc03b37bf598d6ce48b39b3a61b8bc754c08de4"
+  },
+  "3300": {
+   "fnu_1cm": 3.1964791681769906e-22,
+   "sha256": "3404a2a29bbc4e0087bc7d1758a5b903fb0e4f2c3f5a102192a3642d0feae6a3",
+   "source_sha256": "c247fe8035efb8b1c254d8e2966f94d50d0e295ba6301076af9b4bbd7122b9d0",
+   "r24v13_file_sha256": "461488121c8c595c198ff49ac8c1c39cb9af88bbfd095aaba3085ace9a4c1bc2"
+  },
+  "3400": {
+   "fnu_1cm": 3.2594988990600847e-22,
+   "sha256": "a4e246457be7489fdc461dfd388cb1bce8a816310869d45e18ddc766263b1639",
+   "source_sha256": "caa2701d1edab228b5893c803889bb5a486d1197ccc8a00321f8a10ee7ee06d3",
+   "r24v13_file_sha256": "3b2f90ca9f8d89ea8133ec178c3f8f04c8c8b042363d3b81625c5050798c7ebf"
+  },
+  "3500": {
+   "fnu_1cm": 3.31382215033544e-22,
+   "sha256": "893ecdd15b0494569ab5941b42e917b1f3d89b8addfc462367351263cc29c829",
+   "source_sha256": "eb3355d78a00263c567b273727ed90e2a198e4f022bb7f733763177fae862600",
+   "r24v13_file_sha256": "55f97c943352167137f36998bb7c932fb2c8856a8828eefc76a3af783f20e4ed"
+  },
+  "3600": {
+   "fnu_1cm": 3.3681419090262823e-22,
+   "sha256": "3f416939946d58ca4acc56f719d968570dc5bde5117ec6f0cde64fef22d2b7e1",
+   "source_sha256": "8656e854decd244977737c11b5f2ff7e558c535fafe2dc9d61c1075b8e8ff538",
+   "r24v13_file_sha256": "68c09bb6fb63f38cba7f0ec5e647177639426a5b527a5664b95b6bc12ca311a8"
+  },
+  "3700": {
+   "fnu_1cm": 3.410639088429343e-22,
+   "sha256": "9e2c87c9e5c9be032eabef9048caad0c827e339d198034b0bc7a8dfce4d951b5",
+   "source_sha256": "69270b1435e3ed04ad68223a7d1c2b9e58bfdb98211e1c9a8d8e1ec90647a8c7",
+   "r24v13_file_sha256": "18467f2f52a20154bc6b627ed9eb633bbcf52a7fc414b63c1f569a6861581994"
+  },
+  "3800": {
+   "fnu_1cm": 3.4634085840970504e-22,
+   "sha256": "5bc8c51a7522bd810dbf9918b0c27f11aa541b9084526855dd22a6c0863e30f7",
+   "source_sha256": "4cb17984ef462dfecaad793d0771a42752cde1198cb26355042b9c27922057a6",
+   "r24v13_file_sha256": "51e9ee7fb6ecc6d6d3500e1ac9dd7fef360564d0ba5b3515bf18ed1739a55104"
+  },
+  "3900": {
+   "fnu_1cm": 3.5109781102571347e-22,
+   "sha256": "df31a4e66bf060fbffd9958c1105702e791a38d9150813d68cc233e5545c2c47",
+   "source_sha256": "bd8819477a146ad3eef5ec4431123d87233685a0f9283dc0b1e4a726d9f5c5ec",
+   "r24v13_file_sha256": "9435b216201bc80d055dcb447037712f867390e33796c3cd715ba8be391b182e"
+  },
+  "4000": {
+   "fnu_1cm": 3.563619617348189e-22,
+   "sha256": "a27e09676cbfcc9edf190b9f70c1320c099b0391efb6ba64e09668078301907a",
+   "source_sha256": "ce0d76ce405b9d28dc4089d997867f8433fd6f2d84007c0367a8b72f7c2a8f05",
+   "r24v13_file_sha256": "60aa71d2183aedbfdad587c93278e695152b219ca0fdc0abba970536c91990a9"
+  }
+ }
+}

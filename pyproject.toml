@@ -29,7 +29,7 @@ source = "vcs"
 version-file = "mysg/_version.py"
 
 [tool.hatch.build.targets.sdist]
-include = ["/mysg", "/CHANGES.md"]
+include = ["/mysg", "/scripts", "/CHANGES.md"]
 
 [tool.ruff.lint]
 select = ["F"]
