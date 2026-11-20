@@ -1,3 +1,24 @@
+1.3 (unreleased)
+----------------
+
+- The default stellar atmospheres now have solar metallicity at all
+  temperatures. Below 4000 K, they are the solar-metallicity PHOENIX
+  (BT-Settl) spectra used for version 1.3 of the R24 models (T. Richardson),
+  which are made from spectra downloaded from the STScI archive the first time
+  they are needed and are checked against the recorded checksums. Previously,
+  the atmospheres below 4000 K had [M/H] = -2. The Kurucz atmospheres, used at
+  4000 K and above, are unchanged. Use ``atmospheres='r17'`` to reproduce
+  models computed with earlier versions.
+
+- Added the ``atmospheres`` option to ``setup_model`` and ``interp_atmos`` to
+  select a set of stellar atmospheres: ``'solar'`` (the default), ``'r17'``
+  (the bundled set) or a directory of tables.
+
+- Added ``scripts/make_atmospheres.py`` to write the ``'solar'`` set to a
+  directory (for computers without network access) and to make sets with one
+  metallicity at all temperatures. The sources, conversion steps and checksums
+  of all sets are described in ``mysg/data/README.md``.
+
 1.2 (unreleased)
 ----------------
 
